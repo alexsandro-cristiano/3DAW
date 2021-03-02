@@ -1,9 +1,8 @@
-<div align="center">
+<h1 align="center"> 3DAW </h1>
 
-# 3DAW
-
-![Logo da Faeterj-rio](imagem/faeterj.png)
-</div>
+<p align="center">
+ <img width="100px" src="imagem/faeterj.png" align="center" alt="Logo da Faeterj-rio" />
+</p>
 
 ## Sobre
 <p>
