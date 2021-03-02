@@ -1,10 +1,11 @@
 <div align="center">
 
 # 3DAW
-![FAETERJ-RIO](imagem/faeterj.png)
+
+![Logo da Faeterj-rio](imagem/faeterj.jpg)
 </div>
 
 ## Sobre
 <p>
-    Conteúdo das aulas da faculdade disciplina de Desenvolvimento de Tecnologias Web, administradas pelo Prof. Andre Neves
+    Atividades desenvolvidas nas aulas de Desenvolvimento de Tecnologias Web (3DAW) administradas pelo <em>Prof. Andre Neves</em>. Durante o terceiro periodo da graduação em Analise e Desenvolvimento de Sistemas na FAETERJ-RIO.
 </p>
