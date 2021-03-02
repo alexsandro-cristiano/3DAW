@@ -2,7 +2,7 @@
 
 # 3DAW
 
-![Logo da Faeterj-rio](imagem/faeterj.jpg)
+![Logo da Faeterj-rio](imagem/faeterj.png)
 </div>
 
 ## Sobre
