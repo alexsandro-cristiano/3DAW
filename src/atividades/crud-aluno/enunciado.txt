@@ -1,0 +1,5 @@
+
+Criar um CRUD de Aluno com telas especificas para cada ação.
+
+Tudo começa com uma tela html de menu com os itens: Incluir Aluno, Alterar Aluno, Excluir Aluno, Listar Alunos e Listar um Aluno.
+A partir da seleção deve ser chamado as funções do CRUD em um ou mais arquivos PHP diferentes.
