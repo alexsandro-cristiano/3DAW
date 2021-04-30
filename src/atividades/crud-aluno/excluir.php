@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -55,6 +56,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </main>
+
+    <?php
+    if ($pass) {
+        require_once "./db/conexao.php";
+        $conexao = novaConexao();
+        if ($id != "") {
+            $sql = "DELETE FROM aluno WHERE id = $id";
+            execultarSQL($conexao, $sql);
+        } else {
+            $sql = "DELETE FROM aluno WHERE matricula = $matricula";
+            execultarSQL($conexao, $sql);
+        }
+        $conexao->close;
+    }
+
+    function execultarSQL($conexao, $sql)
+    {
+        $resultado = $conexao->query($sql);
+
+        if ($resultado) {
+            echo "<br><br>Registro Deletado com sucesso<br>";
+        } else {
+            echo "<br><br>Erro: " . $conexao->connect_error;
+        }
+    }
+    ?>
     <footer>
         <p>3DAW Atividade CRUD Aluno</p>
         <p>by Alexsandro Cristiano Gonçalves da Silva</p>
@@ -62,29 +89,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
-<?php
-if ($pass) {
-    require_once "./db/conexao.php";
-    $conexao = novaConexao();
-    if ($id != "") {
-        $sql = "DELETE FROM aluno WHERE id = $id";
-        execultarSQL($conexao, $sql);
-    }
-    else {
-        $sql = "DELETE FROM aluno WHERE matricula = $matricula";
-        execultarSQL($conexao, $sql);
-    }
-    $conexao->close;
-}
-
-function execultarSQL($conexao, $sql)
-{
-    $resultado = $conexao->query($sql);
-
-    if ($resultado) {
-        echo "Sucesso :)<br>";
-    } else {
-        echo "Erro: " . $conexao->connect_error;
-    }
-}
-?>
