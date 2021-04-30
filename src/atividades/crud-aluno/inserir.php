@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
@@ -9,21 +7,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $emailValido = 0;
     $matriculaValido = 0;
 
-    if (($email != "") && ($nome != "" and ctype_alpha($nome)) && ($matricula != "" and ctype_digit($matricula))) {
+    if (($email != "") && ($nome != "") && ($matricula != "" and ctype_digit($matricula))) {
         $matriculaValido = 1;
         $emailValido = 1;
         $nomeValido = 1;
+    } else {
+        echo 'ERRO COM A INFORMAÇÃO PASSADA!<br>';
     }
 }
-
 ?>
 
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Inserir Aluno</title>
     <style>
         .campo-interno {
@@ -32,7 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .btn {
             margin-top: 0.9rem;
+            text-decoration: none;
+            font-size: 17px;
 
+        }
+
+        .btn a {
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
@@ -73,29 +81,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
 </body>
 
-<?php
-    if(($nomeValido == 1) && ($emailValido == 1) && ($matriculaValido == 1)) {
-        //chamando arquivo que vai fazer a conecção com bando pela funcao novaConexao
-        require_once '../db/conexao.php';
-        $conectado = novaConexao();
-
-        //criando objeto do 
-        $sql = "INSERT INTO `alunos`(`nome`, `email`, `matrícula`) VALUES ('$nome','$email','$matricula')";
-
-        $resultado = $conectado->query($sql);
-
-        if ($resultado) {
-            echo "Aluno,$nome, inserido com sucesso!";
-        }
-        else {
-            echo "Erro ao inserir aluno!";
-        }
-    }
-    
-
-
-
-
-
-?>
 </html>
+
+<?php
+if (($nomeValido == 1) && ($emailValido == 1) && ($matriculaValido == 1)) {
+
+    require_once "./db/conexao.php";
+
+    $sql = "INSERT INTO `aluno` (`id`, `nome`, `email`, `matricula`) VALUES (NULL, '$nome', '$email', '$matricula')";
+
+    $conexao = novaConexao();
+    $resultado = $conexao->query($sql);
+
+    if ($resultado) {
+        echo "Sucesso :)<br>";
+    } else {
+        echo "Erro: " . $conexao->connect_error;
+    }
+
+    $conexao->close();
+}
+?>
