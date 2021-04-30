@@ -1,21 +1,17 @@
 <?php
 
-function novaConexao() {
+function novaConexao($nomeDoBanco = 'faeterj_daw'){
     $servidor = "localhost";
     $usuario = "root";
-    $senha = "";
-    $nomeDoBanco = 'dawfaeterj';
+    $senha = "root";
 
-    //Criando objeto do tipo mysql
-    $conexao = new mysqli($servidor,$usuario,$senha,$nomeDoBanco);
+    //criar instancia de mysqli
+    $conexao = new mysqli($servidor, $usuario, $senha, $nomeDoBanco);
 
-    //Verificar se consegui conectar no banco
     if($conexao->connect_error) {
-        die('ERRO: ' . $conexao->connect_error);
+        die('Erro: ' . $conexao->connect_error);
     }
 
-    //Retornando para quem chamou o objeto mysql
+    //retornando a conexao já estabelecida com o banco de dados
     return $conexao;
 }
-
-?>
