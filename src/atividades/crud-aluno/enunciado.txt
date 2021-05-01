@@ -3,3 +3,16 @@ Criar um CRUD de Aluno com telas especificas para cada ação.
 
 Tudo começa com uma tela html de menu com os itens: Incluir Aluno, Alterar Aluno, Excluir Aluno, Listar Alunos e Listar um Aluno.
 A partir da seleção deve ser chamado as funções do CRUD em um ou mais arquivos PHP diferentes.
+
+[v] Incluir Aluno
+[v] Alterar Aluno
+[v] Excluir Aluno
+[v] Listar Alunos
+[v] Listar um Aluno.
+
+//COMANDOS DO SQL
+DELETE FROM `nome_da_tabela` WHERE `nome_da_tabela`.`campo_da_table` = ?
+
+SELECT * FROM `nome_da_tabela`
+
+SELECT FROM `nome_da_tabela` WHERE `nome_da_tabela`.`campo_da_table` = ?
