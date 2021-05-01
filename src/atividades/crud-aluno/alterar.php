@@ -1,16 +1,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["id"];
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $matricula = $_POST["matricula"];
-    $nomeValido = 0;
-    $emailValido = 0;
-    $matriculaValido = 0;
+
+    $pass = false;
 
     if (($email != "") && ($nome != "") && ($matricula != "" and ctype_digit($matricula))) {
-        $matriculaValido = 1;
-        $emailValido = 1;
-        $nomeValido = 1;
+        $pass = true;
     } else {
         echo 'ERRO COM A INFORMAÇÃO PASSADA!<br>';
     }
@@ -39,6 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .btn a {
             text-decoration: none;
             color: black;
+        }
+        .full_php{
+            border: 1px black solid;
+            margin: 3rem auto 3rem auto;
+            padding: 2rem;
         }
     </style>
     <title>CRUD Alunos | Alterar</title>
@@ -77,36 +80,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit">Enviar</button>
             </div>
         </form>
+    </main>
+
+    <div class="full_php">
 
         <?php
+        if ($pass) {
+            require_once "./db/conexao.php";
 
-        if ($idValido == 1) {
-            if ($nomeValido == 1 && $emailValido == 1 && $matriculaValido == 1) {
-                require_once "conexao.php";
+            $conexao = novaConexao();
 
-                $conexao = novaConexao();
+            $sql = "SELECT * FROM aluno WHERE id = $id";
+            $resultado = $conexao->query($sql);
 
-                $sql = "SELECT * FROM `alunos` WHERE `id`='$id'";
-                $resultado = $conexao->query($sql);
-
-                if ($resultado->num_rows == 0) {
-                    echo "Não existe aluno com o ID correspondente!<br>";
-                } else {
-                    $sql = "UPDATE aluno SET nome = $nome, email = $email, matrícula = $matricula WHERE  id = $id ";
-
-                    mysqli_query($conexao, $sql) or die("Erro ao tentar excluir registro!");
-
+            if ($resultado->num_rows > 0) {
+                                
+                $sql = "UPDATE `aluno` SET `nome` = '$nome', `email` = '$email', `matricula` = '$matricula' WHERE `aluno`.`id` = $id";
+                if ($conexao->query($sql)) {
                     echo "Aluno alterado com sucesso!<br>";
+                } else {
+                    echo 'Erro: ' . $conexao->error . '<br>';
                 }
             } else {
-                echo "Preencha os dados corretamente!";
-                echo "<br>";
+                echo "Não existe aluno com o ID correspondente!<br>";
             }
-        } else {
-            echo "Digite um ID inválido!";
         }
         ?>
-    </main>
+    </div>
+
+
     <footer>
         <p>3DAW Atividade CRUD Aluno</p>
         <p>by Alexsandro Cristiano Gonçalves da Silva</p>
