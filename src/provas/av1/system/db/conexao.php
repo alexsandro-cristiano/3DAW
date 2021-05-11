@@ -1,0 +1,2 @@
+<?php
+$inicial=0;
