@@ -8,11 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         require_once "../../db/conexao.php";
 
-       # $sql = "SELECT * FROM `clientes` WHERE `nome` = '$nome'"; # sem erro
-        # $sql = "SELECT * FROM clientes WHERE nome = $nome"; -> com erro
-        # $sql = "SELECT * FROM clientes WHERE nome = `$nome`"; -> com erro
-         $sql = "SELECT * FROM clientes WHERE nome = $nome";
-
+        $sql = "SELECT * FROM `clientes` WHERE `nome` = '$nome'"; # sem erro
+        
         $conexao = novaConexao();
 
         $resultado = $conexao->query($sql);
