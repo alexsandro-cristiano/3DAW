@@ -26,6 +26,9 @@
     color: #313131;
 }
 
+small{
+    margin-left: 0.5rem;
+}
 
 input {
     display: block;
@@ -131,4 +134,35 @@ th, td {
 #voltar a:hover {
     text-decoration: none;
     background-color: #c0f7c0;
+}
+
+.btn{
+    border-radius: 5px; /*deixa o contorno arredondado*/
+    padding: .5px 1px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn a{
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+.del a{
+    text-decoration: none;
+    text-align: center;
+}
+
+.del:hover {
+    text-decoration: none;
+    background-color: #f82a2a;
+}
+
+.alt:hover {
+    background-color: #f3e746;
 }

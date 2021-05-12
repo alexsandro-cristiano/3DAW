@@ -37,14 +37,22 @@ CREATE DATABASE faeterj_daw_av1
 use faeterj_daw_av1;
 
 CREATE TABLE clientes(
-	id_cliente int AUTO_INCREMENT PRIMARY KEY,
-    nome varchar(50),
-    cpf varchar(11),
-    endereco varchar(30),
-    cep varchar(20),
-    cidade varchar(30),
-    estado varchar(30)
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
+    cpf VARCHAR(11),
+    endereco VARCHAR(30),
+    cep VARCHAR(20),
+    cidade VARCHAR(30),
+    estado VARCHAR(30)
 );
+
+$sql = "CREATE TABLE IF NOT EXISTS aluno(
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    matricula VARCHAR(30) NOT NULL
+)";
+
 
 nome, descrição, preço, quantidade e peso em gramas
 use faeterj_daw_av1;

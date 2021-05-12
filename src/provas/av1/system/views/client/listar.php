@@ -40,22 +40,26 @@ $conexao->close();
         <div class="corpo-tabela">
             <table>
                 <thead>
+                    <th>ID</th>
                     <th>NOME</th>
                     <th>CPF</th>
                     <th>ENDEREÇO</th>
                     <th>CEP</th>
                     <th>CIDADE</th>
                     <th>ESTADO</th>
+                    <th>AÇÃO</th>
                 </thead>
                 <tbody>
                     <?php foreach ($registros as $registro) : ?>
                         <tr>
+                            <td><?= $registro['id'] ?></td>
                             <td><?= $registro['nome'] ?></td>
                             <td><?= $registro['cpf'] ?></td>
                             <td><?= $registro['endereco'] ?></td>
                             <td><?= $registro['cep'] ?></td>
                             <td><?= $registro['cidade'] ?></td>
                             <td><?= $registro['estado'] ?></td>
+                            <td> <button class="btn del"><a href="./excluir.html">excluir</a></button> | <button class="btn alt"><a href="./alterar.php">alterar</a></button></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
