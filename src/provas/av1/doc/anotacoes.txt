@@ -19,7 +19,7 @@ prova AV1 - DAW
     Funcionalidades
         - criar ok
         - alterar
-        - listar todos
+        - listar todos ok
         - listar 1 cliente
         - excluir
 

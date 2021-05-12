@@ -24,7 +24,7 @@
             <input type="text" name="cep" placeholder="CEP" maxlength="9">
             <input type="text" name="cidade" placeholder="Cidade" maxlength="30">
             <input type="text" name="estado" placeholder="Estado" maxlength="30">
-            <input type="cancelar" value="Cancelar">
+            <button id="cancelar"><a href="./index.html">Cancelar</a></button>
             <input type="submit" value="Enviar">
         </form>
     </div>
@@ -67,7 +67,6 @@ function cadastrar($nome, $cpf, $endereco, $cep, $cidade, $estado)
     VALUES ('$nome', '$cpf', '$endereco', '$cep', '$cidade', '$estado')";
 
     $conexao = novaConexao();
-    echo "<br><br> VOLTEI EM PORRA / CARALHO";
     $resultado = $conexao->query($sql);
 
     if ($resultado) {
@@ -75,8 +74,6 @@ function cadastrar($nome, $cpf, $endereco, $cep, $cidade, $estado)
     } else {
         return false;
     }
-
-    echo "<br><br> FECHEI EM PORRA / CARALHO";
     $conexao->close();
 }
 
