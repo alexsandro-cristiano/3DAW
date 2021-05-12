@@ -7,12 +7,17 @@ prova AV1 - DAW
 - Criar uma home page
     - ter 2 opcoes [cliente ; produto] - pronto
 
+- Criar banco e as tabelas abaixo
+    - cliente ok
+    - produto ok
+
+
 - Clientes
     - formulario para entrada de dados
         - Campos [nome, cpf, endereco,cep,cidade, estado]
 
     Funcionalidades
-        - criar
+        - criar ok
         - alterar
         - listar todos
         - listar 1 cliente
@@ -26,3 +31,26 @@ prova AV1 - DAW
 
 
 -------------------------------------------------------------------------------------------------------
+
+CREATE DATABASE faeterj_daw_av1
+
+use faeterj_daw_av1;
+
+CREATE TABLE clientes(
+	id_cliente int AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(50),
+    cpf varchar(11),
+    endereco varchar(30),
+    cep varchar(20),
+    cidade varchar(30),
+    estado varchar(30)
+);
+
+nome, descrição, preço, quantidade e peso em gramas
+use faeterj_daw_av1;
+
+CREATE TABLE `faeterj_daw_av1`.`produtos` ( `id_produto` INT UNSIGNED NOT NULL AUTO_INCREMENT , `nome` VARCHAR(30) NOT NULL , `descricao` VARCHAR(100) NOT NULL , `preco` DOUBLE(4,2) NOT NULL , `quantidade` INT NOT NULL , `peso` DOUBLE(4,2) NOT NULL , PRIMARY KEY (`id_produto`)) ENGINE = InnoDB;
+
+
+ $sql = "INSERT INTO `clientes` (`id`, `nome`, `cpf`, `endereco`, `cep`, `cidade`, `estado`)
+    VALUES (NULL, '$nome', '$cpf', '$endereco', '$cep', '$cidade', '$estado')";
