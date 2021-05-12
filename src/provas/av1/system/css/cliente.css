@@ -50,14 +50,28 @@ input[type=submit]:hover {
     background-color: #25e61e;
 }
 
-input[type=cancelar] {
-    text-align: center;
+#cancelar{
+    height: 55px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 5px; /*deixa o contorno arredondado*/
+    border: 1px solid black;
+    font-size: 16pt;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.01);
+    outline: none;
     background-color: #f82a2ae1;
     border: none;
     cursor: pointer;
 }
 
-input[type=cancelar]:hover {
+#cancelar a{
+    text-decoration: none;
+    text-align: center;
+}
+
+#cancelar:hover {
+    text-decoration: none;
     background-color: #f82a2a;
 }
 
@@ -79,4 +93,42 @@ div p {
     text-align: center;
     color: black;
     border: 1px solid black;
+}
+
+.corpo-tabela {
+    margin: 5rem auto 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    height: 100%;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+#voltar{
+    margin: 1rem 0 0 2rem;
+    width: 10%;
+    height: 5%;
+}
+
+#voltar a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+#voltar a:hover {
+    text-decoration: none;
+    background-color: #c0f7c0;
 }
