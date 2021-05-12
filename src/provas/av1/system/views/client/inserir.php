@@ -14,9 +14,10 @@
     <header>
         <h1>Prova AV1 | CRUD Cliente</h1>
     </header>
-
+    
     <div id="corpo-form">
         <h1>Cadastro</h1>
+        <small>Preencher todos os campos</small>
         <form action="./inserir.php" method="post">
             <input type="text" name="nome" placeholder="Nome Completo" maxlength="30">
             <input type="text" name="cpf" placeholder="CPF somente números" maxlength="11">
