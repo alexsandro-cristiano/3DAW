@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------------------------------
+
+Anotações:
+
+prova AV1 - DAW
+
+- Criar uma home page
+    - ter 2 opcoes [cliente ; produto] - pronto
+
+- Clientes
+    - formulario para entrada de dados
+        - Campos [nome, cpf, endereco,cep,cidade, estado]
+
+    Funcionalidades
+        - criar
+        - alterar
+        - listar todos
+        - listar 1 cliente
+        - excluir
+
+- Produtos
+    - ler arquivo e criar banco
+    - Campos [nome, descrição, preço, quantidade e peso em gramas]
+
+    - Atividade Extra: fazer upload do arquivo para processamento.
+
+
+-------------------------------------------------------------------------------------------------------
