@@ -120,7 +120,7 @@ th, td {
 }
 
 #voltar{
-    margin: 1rem 0 0 2rem;
+    margin: 1rem 2rem 0 0;
     width: 10%;
     height: 5%;
 }
@@ -137,7 +137,7 @@ th, td {
 }
 
 .btn{
-    border-radius: 5px; /*deixa o contorno arredondado*/
+    border-radius: 5px;
     padding: .5px 1px;
     outline: none;
     border: none;
