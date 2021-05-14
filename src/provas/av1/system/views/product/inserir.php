@@ -56,25 +56,13 @@ function adicionarElemento($nome, $descricao, $preco, $quantidade, $peso)
 {
     require_once "../../db/conexao.php";
 
-    $sql = ("INSERT INTO produtos(nome, descricao, preco, quantidade, peso) VALUES ($nome,$descricao,$preco,$quantidade,$peso)");
-    # $sql = "INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `quantidade`, `peso`) VALUES ('$nome', '$descricao', $preco, $quantidade, $peso)";
+    $sql = "INSERT INTO `produtos` (`nome`, `descricao`, `preco`, `quantidade`, `peso`) VALUES ('$nome', '$descricao', $preco, $quantidade, $peso)";
 
-    echo "valores recebidos<br><br>{$nome}<br>";
-    echo "{$descricao}<br>";
-    echo "{$preco}<br>";
-    echo "{$quantidade}<br>";
-    echo "{$peso}<br>";
-    
     $conexao = novaConexao();
-
-    var_dump($conexao);
-    
     $resultado = $conexao->query($sql);
 
-    var_dump($resultado);
-
     if ($resultado) {
-        echo "Sucesso :)<br>";
+        echo "Produto Inserido com Sucesso<br>";
     } else {
         echo "Erro: ";
     }

@@ -18,14 +18,14 @@ prova AV1 - DAW
 
     Funcionalidades
         - criar ok
-        - alterar
+        - alterar ok
         - listar todos ok
-        - listar 1 cliente
-        - excluir
+        - listar 1 cliente ok
+        - excluir ok
 
 - Produtos
-    - ler arquivo e criar banco
-    - Campos [nome, descrição, preço, quantidade e peso em gramas]
+    - ler arquivo e criar banco ok
+    - Campos [nome, descrição, preço, quantidade e peso em gramas] ok
 
     - Atividade Extra: fazer upload do arquivo para processamento.
 
