@@ -1,7 +1,7 @@
 <?php
 function testeDadosRecebidos($nome, $id)
 {
-    if (($id != "") || ($nome != "")) {
+    if (($id != "") && ($nome != "")) {
         return true;
     } else {
         return false;
@@ -9,27 +9,39 @@ function testeDadosRecebidos($nome, $id)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    require_once "./excluir.html";
     $nome = $_GET["nome"];
     $id = $_GET["id"];
 
     if (testeDadosRecebidos($nome, $id)) {
-        
+
         require_once "../../db/conexao.php";
         $conexao = novaConexao();
 
-        $sql = "DELETE FROM `clientes` WHERE `id` = '$id'";
+        $sql = "DELETE FROM `clientes` WHERE `id` = '$id' AND `nome` = '$nome'";
         $resultado = $conexao->query($sql);
 
         if ($resultado) {
-            echo "<br><br>Registro Deletado com sucesso<br>";
-        } else {
-            echo "<br><br>Erro: " . $conexao->connect_error;
-        }
+        ?>
+            <div id="msg-sucesso">
+                Registro Deletado com <strong>Sucesso</strong>
+            </div>
+        <?php
 
+        } else {
+        ?>
+            <div class="msg-error">
+                <?= "Erro: " . $conexao->connect_error; ?>
+            </div>
+        <?php
+
+        }
         $conexao->close;
+    } else {
+        ?>
+        <div class="msg-error">
+            Erro: Campos Não Informado
+        </div>
+<?php
     }
-    else {
-        echo "Campos Vazios<br>";
-    }
+    require_once "./excluir.html";
 }

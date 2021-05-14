@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/cliente.css">
+    <link rel="stylesheet" href="../../css/mensagens-cliente.css">
     <title>CRUD Cliente | Inserir</title>
 </head>
 
@@ -14,10 +15,10 @@
     <header>
         <h1>Prova AV1 | CRUD Cliente</h1>
     </header>
-    
+
     <div id="corpo-form">
         <h1>Alterar</h1>
-        <small>Atenção<br></small>
+        <small style="color: red;">Atenção<br></small>
         <small>Preencher todos os campos</small>
         <form action="./alterar.php" method="post">
             <input type="int" name="id" placeholder="ID do Cliente" maxlength="30">
@@ -30,32 +31,37 @@
             <button id="cancelar"><a href="./index.html">Cancelar</a></button>
             <input type="submit" value="Enviar">
         </form>
-    </div>
-    <?php
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $id = $_POST["id"];
-        $nome = $_POST["nome"];
-        $cpf = $_POST["cpf"];
-        $endereco = $_POST["endereco"];
-        $cep = $_POST["cep"];
-        $cidade = $_POST["cidade"];
-        $estado = $_POST["estado"];
+        <?php
 
-        $pass = testarDados($nome, $cpf, $endereco, $cep, $cidade, $estado);
-        if ($pass == 1) {
-            if (alterar($id, $nome, $cpf, $endereco, $cep, $cidade, $estado)) {
-                echo '<p>Cliente Alterado com <strong>Sucesso</strong></p>';
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id = $_POST["id"];
+            $nome = $_POST["nome"];
+            $cpf = $_POST["cpf"];
+            $endereco = $_POST["endereco"];
+            $cep = $_POST["cep"];
+            $cidade = $_POST["cidade"];
+            $estado = $_POST["estado"];
+
+            if (validarDados($nome, $cpf, $endereco, $cep, $cidade, $estado)) {
+
+                if (alterar($id, $nome, $cpf, $endereco, $cep, $cidade, $estado)) {
+        ?>
+                    <div id="msg-sucesso">
+                        Cliente Alterado com <strong>Sucesso</strong>
+                    </div>
+                <?php
+                }
+            } else {
+                ?>
+                <div class="msg-error">
+                    Erro: Campo Vazio ou Incompleto
+                </div>
+        <?php
             }
-            else{
-                echo'erro';
-            }
-        } else {
-            echo "Erro: Campo Vazio ou Incompleto<br>";
         }
-    }
-    ?>
-
+        ?>
+    </div>
 
     <footer>
         <p>3DAW Prova AV1</p>
@@ -67,7 +73,7 @@
 
 <?php
 
-function alterar($id,$nome, $cpf, $endereco, $cep, $cidade, $estado)
+function alterar($id, $nome, $cpf, $endereco, $cep, $cidade, $estado)
 {
     require_once "../../db/conexao.php";
 
@@ -84,38 +90,13 @@ function alterar($id,$nome, $cpf, $endereco, $cep, $cidade, $estado)
     $conexao->close();
 }
 
-function testarDados($nome, $cpf, $endereco, $cep, $cidade, $estado)
+
+function validarDados($nome, $cpf, $end, $cep, $cidade, $estado)
 {
-    if ($nome == "") {
-        echo 'if nome';
-        return -1;
+    if (!empty($nome) && (!empty($cpf) and ctype_digit($cpf)) && !empty($end) && (!empty($cep) and ctype_digit($cep)) && !empty($cidade) && !empty($estado)) {
+        return true;
     }
-
-    if ($cpf == "" and ctype_digit($cpf)) {
-        echo 'if cpf';
-        return -1;
-    }
-
-    if ($endereco == "") {
-        echo 'if endereco';
-        return -1;
-    }
-
-    if ($cep == "" and ctype_digit($cep)) {
-        echo 'if cep';
-        return -1;
-    }
-
-    if ($cidade == "") {
-        echo 'if cidade';
-        return -1;
-    }
-
-    if ($estado == "") {
-        echo 'if estado';
-        return -1;
-    }
-
-    return 1;
+    return false;
 }
+
 ?>
