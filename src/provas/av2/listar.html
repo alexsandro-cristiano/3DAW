@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Listar Produto</title>
+</head>
+<body>
+    <header>
+        <h1>Loja Ximbolé Bahiano</h1>
+        <nav>
+            <span style="padding-right: 10px"><a href="listar.html">Listar Todos Produtos</a></span>
+            <span style="padding-right: 10px"><a href="listar.html">Listar Um Produto</a></span>
+            <span style="padding-right: 10px"><a href="index.html">Incluir Produtos</a></span>
+            <span style="padding-right: 10px"><a href="alterar.html">Alterar Produtos</a></span>
+            <span style="padding-right: 10px"><a href="excluir.html">Excluir Produtos</a></span>
+        </nav>
+    </header>
+
+  <h3>Listar Produto</h3>
+  <table >
+    <thead>
+        <th>código de barra</th>
+        <th>categoria</th>
+        <th>preço de venda</th>
+        <th>estoque</th>
+    </thead>
+    <tbody id="tabela" onload="escreverTabela">
+     
+  </tbody>
+</body>
+<script>
+  function escreverTabela() {
+    const dbParam = JSON.stringify({"limit":10});
+
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+      document.getElementById("tabela").innerHTML = this.responseText;
+    }
+    xmlhttp.open("GET", "listar.php?x=" + dbParam);
+    xmlhttp.send();
+
+  }
+</script>
+</html>
