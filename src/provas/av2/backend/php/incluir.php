@@ -31,9 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             return false;
         }
         $conexao->close();
+        echo $msgErro = "formulário inserido";
     }
     else {
-        $msgErro = "formulário com erro";
+        echo $msgErro = "formulário com erro";
     }
 }
 

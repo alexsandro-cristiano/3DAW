@@ -27,18 +27,18 @@
     <tbody id="tabela" onload="escreverTabela">
      
   </tbody>
-</body>
-<script>
-  function escreverTabela() {
-    const dbParam = JSON.stringify({"limit":10});
-
-    const xmlhttp = new XMLHttpRequest();
-    xmlhttp.onload = function() {
-      document.getElementById("tabela").innerHTML = this.responseText;
+  <script>
+    function escreverTabela() {
+      const dbParam = JSON.stringify({"limit":10});
+  
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+        document.getElementById("tabela").innerHTML = this.responseText;
+      }
+      xmlhttp.open("GET", "./backend/php/listar.php?x=" + dbParam);
+      xmlhttp.send();
+  
     }
-    xmlhttp.open("GET", "listar.php?x=" + dbParam);
-    xmlhttp.send();
-
-  }
-</script>
+  </script>
+</body>
 </html>

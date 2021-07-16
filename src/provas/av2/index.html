@@ -62,184 +62,194 @@
 
   <p id="msgErro"></p>
 </form>
-
-</body>
 <script>
-     function EnviarForm() {
-        let xmlHttp = new XMLHttpRequest();
-        
-        let nome = document.getElementById("nome").value;
-        let fabricante = document.getElementById("fabricante").value;
-        let categoria = document.getElementById("categoria").value;
-        let tpprod = document.getElementById("tpprod").value;
-        let precoVenda = document.getElementById("precoVenda").value;
-        let quantEst = document.getElementById("quantEst").value;
-        let pesoGrama = document.getElementById("pesoGrama").value;
-        let descricao = document.getElementById("descricao").value;
-        let linkImg = document.getElementById("linkImg").value;
-        let data = document.getElementById("data").value;
-        let ativo = document.getElementById("ativo").value;
-        let codBar = document.getElementById("codBar").value;
+  function EnviarForm() {
+     let xmlHttp = new XMLHttpRequest();
+     
+     let nome = document.getElementById("nome").value;
+     let fabricante = document.getElementById("fabricante").value;
+     let categoria = document.getElementById("categoria").value;
+     let tpprod = document.getElementById("tpprod").value;
+     let precoVenda = document.getElementById("precoVenda").value;
+     let quantEst = document.getElementById("quantEst").value;
+     let pesoGrama = document.getElementById("pesoGrama").value;
+     let descricao = document.getElementById("descricao").value;
+     let linkImg = document.getElementById("linkImg").value;
+     let data = document.getElementById("data").value;
+     let ativo = document.getElementById("ativo").value;
+     let codBar = document.getElementById("codBar").value;
 
 
-        xmlHttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log("Retornou: " + this.responseText);
-            //let obj = JSON.parse(this.responseText);
-            document.getElementById("msgErro").value = this.responseText;
-          }
-        }
-        xmlHttp.open("GET", "https://localhost/3daw/EX23_IncluirCliente.php?nome=" + nome +
-                "&cpf=" + cpf + "&endereco=" + endereco + "&cep=" + cep + "&cidade=" + cidade + "&uf=" + uf, true);
-        xmlHttp.send();
-        console.log("Requisição enviada.")
-    }
+     xmlHttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+         console.log("Retornou: " + this.responseText);
+         //let obj = JSON.parse(this.responseText);
+         document.getElementById("msgErro").value = this.responseText;
+       }
+     }
+     xmlHttp.open("GET", "./backend/php/incluir.php?nome=" + nome +
+             "&fabricante=" + fabricante +
+             "&categoria=" + categoria +
+             "&tpprod=" + tpprod +
+             "&precoVenda=" + precoVenda +
+             "&quantEst=" + quantEst +
+             "&pesoGrama=" + pesoGrama +
+             "&descricao=" + descricao +
+             "&linkImg=" + linkImg +
+             "&data=" + data +
+             "&ativo=" + ativo +
+             "&codBar=", true);
+     xmlHttp.send();
+     console.log("Requisição enviada.")
+ }
 
-    function validarForm() {
-    let msgErro = "";
-    
-    let nome = document.getElementById("nome").value;
-    let fabricante = document.getElementById("fabricante").value;
-    let categoria = document.getElementById("categoria").value;
-    let tpprod = document.getElementById("tpprod").value;
-    let precoVenda = document.getElementById("precoVenda").value;
-    let quantEst = document.getElementById("quantEst").value;
-    let pesoGrama = document.getElementById("pesoGrama").value;
-    let descricao = document.getElementById("descricao").value;
-    let linkImg = document.getElementById("linkImg").value;
-    let data = document.getElementById("data").value;
-    let ativo = document.getElementById("ativo").value;
-    let codBar = document.getElementById("codBar").value;
+ function validarForm() {
+ let msgErro = "";
+ 
+ let nome = document.getElementById("nome").value;
+ let fabricante = document.getElementById("fabricante").value;
+ let categoria = document.getElementById("categoria").value;
+ let tpprod = document.getElementById("tpprod").value;
+ let precoVenda = document.getElementById("precoVenda").value;
+ let quantEst = document.getElementById("quantEst").value;
+ let pesoGrama = document.getElementById("pesoGrama").value;
+ let descricao = document.getElementById("descricao").value;
+ let linkImg = document.getElementById("linkImg").value;
+ let data = document.getElementById("data").value;
+ let ativo = document.getElementById("ativo").value;
+ let codBar = document.getElementById("codBar").value;
 
-    if (!ValidarNome(nome)) {
-        msgErro = "nome nao pode ser vazio \n";
-    }
-    if (!ValidarFabr(fabricante)) {
-        msgErro = "fabricante nao pode ser vazio \n";
-    }
-    if (!ValidarCateg(categoria)) {
-        msgErro = "categoria nao pode ser vazio \n";
-    }
-    if (!ValidarTpProd(tpprod)) {
-        msgErro = "tipo de produto nao pode ser vazio \n";
-    }
-    if (!ValidarPvenda(precoVenda)) {
-        msgErro = "preço de venda nao pode ser vazio \n";
-    }
-    if (!ValidarQuant(quantEst)) {
-        msgErro = "quantidade em estoque nao pode ser vazio \n";
-    }
-    if (!ValidarPgra(pesoGrama)) {
-        msgErro = "peço em grama nao pode ser vazio \n";
-    }
-    if (!Validardesc(descricao)) {
-        msgErro = "descrição nao pode ser vazio \n";
-    }
-    if (!Validarlink(linkImg)) {
-        msgErro = "link da imagem nao pode ser vazio \n";
-    }
-    if (!Validardata(data)) {
-        msgErro = "data nao pode ser vazio \n";
-    }
-    if (!Validarativo(ativo)) {
-        msgErro = "ativo nao pode ser vazio \n";
-    }
-    if (!ValidarcodBar(codBar)) {
-        msgErro = "codigo de barra nao pode ser vazio \n";
-    }
+ if (!ValidarNome(nome)) {
+     msgErro = "nome nao pode ser vazio \n";
+ }
+ if (!ValidarFabr(fabricante)) {
+     msgErro = "fabricante nao pode ser vazio \n";
+ }
+ if (!ValidarCateg(categoria)) {
+     msgErro = "categoria nao pode ser vazio \n";
+ }
+ if (!ValidarTpProd(tpprod)) {
+     msgErro = "tipo de produto nao pode ser vazio \n";
+ }
+ if (!ValidarPvenda(precoVenda)) {
+     msgErro = "preço de venda nao pode ser vazio \n";
+ }
+ if (!ValidarQuant(quantEst)) {
+     msgErro = "quantidade em estoque nao pode ser vazio \n";
+ }
+ if (!ValidarPgra(pesoGrama)) {
+     msgErro = "peço em grama nao pode ser vazio \n";
+ }
+ if (!Validardesc(descricao)) {
+     msgErro = "descrição nao pode ser vazio \n";
+ }
+ if (!Validarlink(linkImg)) {
+     msgErro = "link da imagem nao pode ser vazio \n";
+ }
+ if (!Validardata(data)) {
+     msgErro = "data nao pode ser vazio \n";
+ }
+ if (!Validarativo(ativo)) {
+     msgErro = "ativo nao pode ser vazio \n";
+ }
+ if (!ValidarcodBar(codBar)) {
+     msgErro = "codigo de barra nao pode ser vazio \n";
+ }
 
-    if(msgErro != "") {
-        document.getElementById("msgErro").innerText = msgErro;
-    }
-    else {
-        EnviarForm();
-    }
+ if(msgErro != "") {
+     document.getElementById("msgErro").innerText = msgErro;
+ }
+ else {
+     EnviarForm();
+ }
 
-  }
+}
 
 
-  function ValidarNome(name) {
-    if (name == "") {
-      return false;
-    }
-    return true;
-  }
+function ValidarNome(name) {
+ if (name == "") {
+   return false;
+ }
+ return true;
+}
 
-  function ValidarcodBar(codBar) {
-    if (codBar == "") {
-      return false;
-    }
-    return true;
-  }
+function ValidarcodBar(codBar) {
+ if (codBar == "") {
+   return false;
+ }
+ return true;
+}
 
-  function Validarativo(ativo) {
-    if (ativo == "") {
-      return false;
-    }
-    return true;
-  }
+function Validarativo(ativo) {
+ if (ativo == "") {
+   return false;
+ }
+ return true;
+}
 
-  function Validardata(data) {
-    if (data == "") {
-      return false;
-    }
-    return true;
-  }
+function Validardata(data) {
+ if (data == "") {
+   return false;
+ }
+ return true;
+}
 
-  function Validarlink(linkImg) {
-    if (linkImg == "") {
-      return false;
-    }
-    return true;
-  }
+function Validarlink(linkImg) {
+ if (linkImg == "") {
+   return false;
+ }
+ return true;
+}
 
-  function Validardesc(descricao) {
-    if (descricao == "") {
-      return false;
-    }
-    return true;
-  }
+function Validardesc(descricao) {
+ if (descricao == "") {
+   return false;
+ }
+ return true;
+}
 
-  function ValidarPgra(pesoGrama) {
-    if (pesoGrama == "") {
-      return false;
-    }
-    return true;
-  }
+function ValidarPgra(pesoGrama) {
+ if (pesoGrama == "") {
+   return false;
+ }
+ return true;
+}
 
-  function ValidarQuant(quantEst) {
-    if (quantEst == "") {
-      return false;
-    }
-    return true;
-  }
+function ValidarQuant(quantEst) {
+ if (quantEst == "") {
+   return false;
+ }
+ return true;
+}
 
-  function ValidarPvenda(precoVenda) {
-    if (precoVenda == "") {
-      return false;
-    }
-    return true;
-  }
+function ValidarPvenda(precoVenda) {
+ if (precoVenda == "") {
+   return false;
+ }
+ return true;
+}
 
-  function ValidarTpProd(tpprod) {
-    if (tpprod == "") {
-      return false;
-    }
-    return true;
-  }
+function ValidarTpProd(tpprod) {
+ if (tpprod == "") {
+   return false;
+ }
+ return true;
+}
 
-  function ValidarCateg(categoria) {
-    if (categoria == "") {
-      return false;
-    }
-    return true;
-  }
+function ValidarCateg(categoria) {
+ if (categoria == "") {
+   return false;
+ }
+ return true;
+}
 
-  function ValidarFabr(fabricante) {
-    if (fabricante == "") {
-      return false;
-    }
-    return true;
-  }
-  </script>
+function ValidarFabr(fabricante) {
+ if (fabricante == "") {
+   return false;
+ }
+ return true;
+}
+</script>
+</body>
+
 </html>
