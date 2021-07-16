@@ -9,6 +9,7 @@
         <h1>Loja Ximbolé Bahiano</h1>
         <nav>
             <span style="padding-right: 10px"><a href="listar.html">Listar Todos Produtos</a></span>
+            <span style="padding-right: 10px"><a href="listar.html">Listar Um Produto</a></span>
             <span style="padding-right: 10px"><a href="index.html">Incluir Produtos</a></span>
             <span style="padding-right: 10px"><a href="alterar.html">Alterar Produtos</a></span>
             <span style="padding-right: 10px"><a href="excluir.html">Excluir Produtos</a></span>
@@ -113,37 +114,37 @@
     if (!ValidarNome(nome)) {
         msgErro = "nome nao pode ser vazio \n";
     }
-    if (!ValidarNome(fabricante)) {
+    if (!ValidarFabr(fabricante)) {
         msgErro = "fabricante nao pode ser vazio \n";
     }
-    if (!ValidarNome(categoria)) {
+    if (!ValidarCateg(categoria)) {
         msgErro = "categoria nao pode ser vazio \n";
     }
-    if (!ValidarNome(tpprod)) {
+    if (!ValidarTpProd(tpprod)) {
         msgErro = "tipo de produto nao pode ser vazio \n";
     }
-    if (!ValidarNome(precoVenda)) {
+    if (!ValidarPvenda(precoVenda)) {
         msgErro = "preço de venda nao pode ser vazio \n";
     }
-    if (!ValidarNome(quantEst)) {
+    if (!ValidarQuant(quantEst)) {
         msgErro = "quantidade em estoque nao pode ser vazio \n";
     }
-    if (!ValidarNome(pesoGrama)) {
+    if (!ValidarPgra(pesoGrama)) {
         msgErro = "peço em grama nao pode ser vazio \n";
     }
-    if (!ValidarNome(descricao)) {
+    if (!Validardesc(descricao)) {
         msgErro = "descrição nao pode ser vazio \n";
     }
-    if (!ValidarNome(linkImg)) {
+    if (!Validarlink(linkImg)) {
         msgErro = "link da imagem nao pode ser vazio \n";
     }
-    if (!ValidarNome(data)) {
+    if (!Validardata(data)) {
         msgErro = "data nao pode ser vazio \n";
     }
-    if (!ValidarNome(ativo)) {
+    if (!Validarativo(ativo)) {
         msgErro = "ativo nao pode ser vazio \n";
     }
-    if (!ValidarNome(codBar)) {
+    if (!ValidarcodBar(codBar)) {
         msgErro = "codigo de barra nao pode ser vazio \n";
     }
 
@@ -164,77 +165,77 @@
     return true;
   }
 
-  function ValidarNome(codBar) {
+  function ValidarcodBar(codBar) {
     if (codBar == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(ativo) {
+  function Validarativo(ativo) {
     if (ativo == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(data) {
+  function Validardata(data) {
     if (data == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(linkImg) {
+  function Validarlink(linkImg) {
     if (linkImg == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(descricao) {
+  function Validardesc(descricao) {
     if (descricao == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(pesoGrama) {
+  function ValidarPgra(pesoGrama) {
     if (pesoGrama == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(quantEst) {
+  function ValidarQuant(quantEst) {
     if (quantEst == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(precoVenda) {
+  function ValidarPvenda(precoVenda) {
     if (precoVenda == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(tpprod) {
+  function ValidarTpProd(tpprod) {
     if (tpprod == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(categoria) {
+  function ValidarCateg(categoria) {
     if (categoria == "") {
       return false;
     }
     return true;
   }
 
-  function ValidarNome(fabricante) {
+  function ValidarFabr(fabricante) {
     if (fabricante == "") {
       return false;
     }
