@@ -4,7 +4,7 @@ require_once "conexao.php";
 header("Content-Type: application/json; charset=UTF-8");
 $obj = json_decode($_GET["x"], false);
 
-$sql = "SELECT `codBar`, `nome`, `categoria`, `precovenda`, `quantEst` FROM produtos WHERE `ativo` = 'ativo'";;
+$sql = "SELECT `codBar`, `nome`, `categoria`, `precovenda`, `quantEst` FROM produtos WHERE `ativo` = 'ativo'";
 
 $conexao = novaConexao();
 
