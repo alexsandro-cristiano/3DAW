@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../assets/js/cod.js"></script>
+    <title>Alterar Produtos</title>
+  </head>
+  <body onload="exibirCategoria()">
+    <header>
+      <h1>Loja Ximbolé Bahiano</h1>
+    </header>
+
+    <section>
+      <label for="codalt">Codigo de barras:</label>
+      <input
+        type="text"
+        name="codalt"
+        id="codalt"
+        placeholder="Digite o codigo de barras"
+        onchange="mostraInfos(this.value)"
+      />
+      <br /><br />
+      <h1 id="res1"></h1>
+    </section>
+
+    <form id="formAltera" onsubmit="alterarForm()">
+      <fieldset>
+        <legend>Alterar</legend>
+
+        <label>Codigo de barras:</label><br />
+        atual:<input type="text" id="codbarras1" name="cod1" /> novo:<input
+          type="text"
+          id="codbarras2"
+          name="cod2"
+        /><br /><br />
+
+        <label>Nome:</label><br />
+        atual:<input type="text" id="nome1" name="nome1" /> novo:<input
+          type="text"
+          id="nome2"
+          name="nome2"
+        /><br /><br />
+
+        <label>Fabricante:</label><br />
+        atual:<input type="text" id="fabricante1" name="fab1" /> novo:<input
+          type="text"
+          id="fabricante2"
+          name="fab2"
+        /><br /><br />
+
+        <label>Categoria:</label><br />
+        atual:<input type="text" id="categoria1" name="categoria1" />
+        novo:<select
+          id="categoria"
+          onchange="mostraTipos(this.value)"
+          name="categoria"
+        ></select
+        ><br /><br />
+
+        <label>Tipo de produto:</label><br />
+        atual: <input type="text" name="tipoproduto1" id="tpprod1" /> novo:
+        <select id="tpprod" name="tipo de produto"></select
+        ><br /><br />
+
+        <label> Preço de venda:</label><br />
+        atual:<input type="text" id="precovenda1" name="preço de venda1" />
+        novo:<input
+          type="text"
+          id="precovenda2"
+          name="preço de venda2"
+        /><br /><br />
+
+        <label>Quantidade em estoque:</label><br />
+        atual:<input
+          type="text"
+          id="qtdestoque1"
+          name="quantidade em estoque1"
+        />
+        novo:<input
+          type="text"
+          id="qtdestoque2"
+          name="quantidade em estoque2"
+        /><br /><br />
+
+        <label>Peso em gramas:</label><br />
+        atual<input type="text" id="pesogramas1" name="peso em gramas1" />
+        novo:<input
+          type="text"
+          id="pesogramas2"
+          name="peso em gramas2"
+        /><br /><br />
+
+        <label>Descrição:</label><br />
+        atual:<input type="text" id="descricao1" name="descrição1" />
+        novo:<input type="text" id="descricao2" name="descrição2" /><br /><br />
+
+        <label>link da imagem:</label><br />
+        atual:<input type="text" id="linkimagem1" name="link da imagem1" />
+        novo:<input
+          type="text"
+          id="linkimagem2"
+          name="link da imagem2"
+        /><br /><br />
+
+        <label>Data de inclusão:</label><br />
+        atual:<input type="date" id="datainclusao1" name="data de inclusão2" />
+        novo:<input
+          type="date"
+          id="datainclusao2"
+          name="data de inclusão2"
+        /><br /><br /><br />
+      </fieldset>
+      <input type="submit" name="enviar" value="Alterar produto" id="enviar" />
+      <p id="resposta"></p>
+    </form>
+
+    <a href="../index.html"><button>Voltar</button></a>
+
+    <footer>
+      <p>3DAW Prova AV2 | by Alexsandro Cristiano Gonçalves da Silva</p>
+    </footer>
+  </body>
+</html>

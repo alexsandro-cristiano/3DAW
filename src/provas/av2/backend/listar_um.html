@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+  />
+	<script src="../assets/js/cod.js"></script>
+	<title>Listar Produto</title>
+</head>
+<body>
+	<h1>Listar Produto</h1>
+	<section>
+		Digite o codigo de barras:<input type="text" name="codbarras" id="codbarras" onchange="mostrarDados(this.value)">
+		<br><br>
+		<h1 id="res1"></h1>
+	</section>
+
+	<img width="200px" height="200px" id="imagem">
+
+	<table id="tabela">
+		<tr>
+			<th>Codigo de barras</th>
+			<th>Nome</th>
+			<th>Categoria</th>
+			<th>Preço de Venda</th>
+			<th>Quantidade em estoque</th>
+		</tr>	
+		<tr>
+			<td id="cod"></td>
+			<td id="nome"></td>
+			<td id="categoria"></td>
+			<td id="preco"></td>
+			<td id="qtdestoque"></td>
+		</tr>	
+			
+		
+	</table>
+	
+		<a href="../index.html"><button>Voltar</button></a>
+</body>
+</html>

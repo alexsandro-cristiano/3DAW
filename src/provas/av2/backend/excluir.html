@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../assets/css/global.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+  />
+	<script src="../assets/js/cod.js"></script>
+	<title>Excluir Produtos</title>
+</head>
+<body >
+
+  <header>
+    <h1>Loja Ximbolé Bahiano</h1>
+</header>
+
+	<section>
+		Digite o codigo de barras:<input type="text" name="codexc" id="codexc" onchange="mostraInfos(this.value)">
+		<br><br>
+		<h1 id="res1"></h1>
+	</section>
+
+	<form id="delete" onsubmit="excluir()">
+		<fieldset>
+      <legend>Excluir</legend>
+      <label>Codigo de barras:</label><br>
+			<input type="text" id="codbarras1" name="cod1"><br><br>
+			
+      <label>Nome:</label><br>
+			<input type="text" id="nome1" name="nome1"><br><br>
+			
+      <label>Fabricante:</label><br>
+			<input type="text" id="fabricante1" name="fab1"><br><br>
+			
+      <label>Categoria:</label><br>
+			<input type="text" id="categoria1" name="categoria1"><br><br>
+			
+			<label>Tipo de produto:</label><br>
+			 <input type="text" name="tipoproduto1" id="tpprod1"><br><br>
+			
+       <label> Preço de venda:</label><br>
+			<input type="text" id="precovenda1" name="preço de venda1"><br><br>
+			
+			<label>Quantidade em estoque:</label><br>
+			<input type="text" id="qtdestoque1" name="quantidade em estoque1"><br><br>
+			
+      <label>Peso em gramas:</label><br>
+			<input type="text" id="pesogramas1" name="peso em gramas1"><br><br>
+			
+			<label>Descrição:</label><br>
+			<input type="text" id="descricao1" name="descrição1"><br><br>
+			
+			<label>link da imagem:</label><br>
+			<input type="text" id="linkimagem1" name="link da imagem1"><br><br>
+			
+			<label>Data de inclusão:</label><br>
+			<input type="date" id="datainclusao1" name="data de inclusão2"><br><br>
+		</fieldset>   
+    <input type="submit" name="enviar" value="Excluir produto" id="enviar" >
+    <br>
+    <p id="resposta"></p>   
+	</form>
+  
+  <a href="../index.html"><button>Voltar</button></a>
+  
+</body>
+</html>

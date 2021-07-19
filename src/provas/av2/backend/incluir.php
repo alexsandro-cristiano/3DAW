@@ -13,12 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $descricao = $_GET["descricao"];
     $linkImg = $_GET["linkImg"];
     $data = $_GET["data"];
-    $ativo = $_GET["ativo"];
     $codBar = $_GET["codBar"];
 
-    if (validarDados($nome, $fabricante, $categoria, $tpprod, $precoVenda, $quantEst, $pesoGrama, $descricao, $linkImg, $data, $ativo, $codBar)) {
+    if (validarDados($nome, $fabricante, $categoria, $tpprod, $precoVenda, $quantEst, $pesoGrama, $descricao, $linkImg, $data, $codBar)) {
         require_once "conexao.php";
     
+        $ativo = "1";
+
         $sql = "INSERT INTO `produtos` (`nome`, `fabricante`, `categoria`, `tpprod`, `precovenda`, `quantEst`, `pesoGrama`, `descricao`, `linkImg`, `data`, `ativo`, `codBar`)
         VALUES ('$nome', '$fabricante', '$categoria', '$tpprod', '$precoVenda', '$quantEst', '$pesoGrama', '$descricao','$linkImg', '$data', '$ativo', '$codBar')";
     
@@ -31,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             return false;
         }
         $conexao->close();
-        echo $msgErro = "formulário inserido";
+        echo "<br><h1>Cliente inserido com sucesso!<h1/>";
     }
     else {
         echo $msgErro = "formulário com erro";
