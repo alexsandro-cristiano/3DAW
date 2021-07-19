@@ -42,19 +42,43 @@ button:hover {
 }
 
 input {
-  border-radius: 7px;
-  border-color: white;
+  border-radius: 7rem;
+  border-color: #ffffff;
   margin-right: 80px;
-  color: #90cbfb;
-  background-color: white;
+  background-color: #ffffff;
+}
+
+#enviar {
+  border-radius: 15rem;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 2px;
+  cursor: pointer;
+}
+
+#enviar:hover {
+  border-color: #10eb08;
+  color: #ffffff;
+  background-color: #37e631;
 }
 
 table,
 tr,
 th,
 td {
-  border: 2px solid white;
+  margin-top: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  border: 2px solid #0000009c;
   border-collapse: collapse;
+}
+
+section {
+  margin-top: 2.5rem;
+  margin-left: 1.5rem;
 }
 
 footer {
