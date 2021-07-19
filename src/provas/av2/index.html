@@ -1,255 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <title>Cadastro de Produto</title>
-</head>
-<body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>AV2 - Ximbolé Bahiano</title>
+  </head>
+  <body>
     <header>
         <h1>Loja Ximbolé Bahiano</h1>
-        <nav>
-            <span style="padding-right: 10px"><a href="listar.html">Listar Todos Produtos</a></span>
-            <span style="padding-right: 10px"><a href="listar.html">Listar Um Produto</a></span>
-            <span style="padding-right: 10px"><a href="index.html">Incluir Produtos</a></span>
-            <span style="padding-right: 10px"><a href="alterar.html">Alterar Produtos</a></span>
-            <span style="padding-right: 10px"><a href="excluir.html">Excluir Produtos</a></span>
-        </nav>
     </header>
 
-<h3>Cadastro de Produto</h3>
-<form action="" id="cadastro">
-  Código de Barras: <input type="text" id="codBar">
-  <br><br>
-  
-  Nome: <input type="text" id="nome">
-  <br><br>
+    <main>
+      <nav>
+        <h1>Escolha uma Opção</h1>
+        <a href="./backend/incluir.html"><button>Incluir Produto</button></a>
+        <a href="./backend/alterar.html"><button>Alterar Produto</button></a>
+        <a href="./backend/excluir.html"><button>Excluir Produto</button></a>
+        <a href="./backend/listar.php"><button>Listar Todos Produtos</button></a>
+        <a href="./backend/listar_um.html"><button>Listar Um Produto</button></a>
+      </nav>
+    </main>
 
-  Fabricante <input type="text" id="fabricante">
-  <br><br>
-
-
-  Categoria: <input type="text" id="categoria">
-  <br><br>
-
-  Tipo de Produto: <input type="text" id="tpprod">
-  <br><br>
-
-
-  Preço de Venda: <input type="text" id="precoVenda">
-  <br><br>
-
-
-  Quantidade em Estoque: <input type="text" id="quantEst">
-  <br><br>
-
-  Peso em Gramas: <input type="text" id="pesoGrama">
-  <br><br>
-
-  Descrição: <input type="text" id="descricao">
-  <br><br>
-
-  Link da Imagem: <input type="text" id="linkImg">
-  <br><br>
-
-  Data: <input type="text" id="data">
-  <br><br>
-
-  Ativo: <input type="text" id="ativo">
-  <br><br>
-
-  <input type="button" value="Criar Novo Produto" onclick="validarForm()">
-  <br><br>
-
-  <p id="msgErro"></p>
-</form>
-<script>
-  function EnviarForm() {
-     let xmlHttp = new XMLHttpRequest();
-     
-     let nome = document.getElementById("nome").value;
-     let fabricante = document.getElementById("fabricante").value;
-     let categoria = document.getElementById("categoria").value;
-     let tpprod = document.getElementById("tpprod").value;
-     let precoVenda = document.getElementById("precoVenda").value;
-     let quantEst = document.getElementById("quantEst").value;
-     let pesoGrama = document.getElementById("pesoGrama").value;
-     let descricao = document.getElementById("descricao").value;
-     let linkImg = document.getElementById("linkImg").value;
-     let data = document.getElementById("data").value;
-     let ativo = document.getElementById("ativo").value;
-     let codBar = document.getElementById("codBar").value;
-
-
-     xmlHttp.onreadystatechange = function() {
-       if (this.readyState == 4 && this.status == 200) {
-         console.log("Retornou: " + this.responseText);
-         //let obj = JSON.parse(this.responseText);
-         document.getElementById("msgErro").value = this.responseText;
-       }
-     }
-     xmlHttp.open("GET", "./backend/php/incluir.php?nome=" + nome +
-             "&fabricante=" + fabricante +
-             "&categoria=" + categoria +
-             "&tpprod=" + tpprod +
-             "&precoVenda=" + precoVenda +
-             "&quantEst=" + quantEst +
-             "&pesoGrama=" + pesoGrama +
-             "&descricao=" + descricao +
-             "&linkImg=" + linkImg +
-             "&data=" + data +
-             "&ativo=" + ativo +
-             "&codBar=", true);
-     xmlHttp.send();
-     console.log("Requisição enviada.")
- }
-
- function validarForm() {
- let msgErro = "";
- 
- let nome = document.getElementById("nome").value;
- let fabricante = document.getElementById("fabricante").value;
- let categoria = document.getElementById("categoria").value;
- let tpprod = document.getElementById("tpprod").value;
- let precoVenda = document.getElementById("precoVenda").value;
- let quantEst = document.getElementById("quantEst").value;
- let pesoGrama = document.getElementById("pesoGrama").value;
- let descricao = document.getElementById("descricao").value;
- let linkImg = document.getElementById("linkImg").value;
- let data = document.getElementById("data").value;
- let ativo = document.getElementById("ativo").value;
- let codBar = document.getElementById("codBar").value;
-
- if (!ValidarNome(nome)) {
-     msgErro = "nome nao pode ser vazio \n";
- }
- if (!ValidarFabr(fabricante)) {
-     msgErro = "fabricante nao pode ser vazio \n";
- }
- if (!ValidarCateg(categoria)) {
-     msgErro = "categoria nao pode ser vazio \n";
- }
- if (!ValidarTpProd(tpprod)) {
-     msgErro = "tipo de produto nao pode ser vazio \n";
- }
- if (!ValidarPvenda(precoVenda)) {
-     msgErro = "preço de venda nao pode ser vazio \n";
- }
- if (!ValidarQuant(quantEst)) {
-     msgErro = "quantidade em estoque nao pode ser vazio \n";
- }
- if (!ValidarPgra(pesoGrama)) {
-     msgErro = "peço em grama nao pode ser vazio \n";
- }
- if (!Validardesc(descricao)) {
-     msgErro = "descrição nao pode ser vazio \n";
- }
- if (!Validarlink(linkImg)) {
-     msgErro = "link da imagem nao pode ser vazio \n";
- }
- if (!Validardata(data)) {
-     msgErro = "data nao pode ser vazio \n";
- }
- if (!Validarativo(ativo)) {
-     msgErro = "ativo nao pode ser vazio \n";
- }
- if (!ValidarcodBar(codBar)) {
-     msgErro = "codigo de barra nao pode ser vazio \n";
- }
-
- if(msgErro != "") {
-     document.getElementById("msgErro").innerText = msgErro;
- }
- else {
-     EnviarForm();
- }
-
-}
-
-
-function ValidarNome(name) {
- if (name == "") {
-   return false;
- }
- return true;
-}
-
-function ValidarcodBar(codBar) {
- if (codBar == "") {
-   return false;
- }
- return true;
-}
-
-function Validarativo(ativo) {
- if (ativo == "") {
-   return false;
- }
- return true;
-}
-
-function Validardata(data) {
- if (data == "") {
-   return false;
- }
- return true;
-}
-
-function Validarlink(linkImg) {
- if (linkImg == "") {
-   return false;
- }
- return true;
-}
-
-function Validardesc(descricao) {
- if (descricao == "") {
-   return false;
- }
- return true;
-}
-
-function ValidarPgra(pesoGrama) {
- if (pesoGrama == "") {
-   return false;
- }
- return true;
-}
-
-function ValidarQuant(quantEst) {
- if (quantEst == "") {
-   return false;
- }
- return true;
-}
-
-function ValidarPvenda(precoVenda) {
- if (precoVenda == "") {
-   return false;
- }
- return true;
-}
-
-function ValidarTpProd(tpprod) {
- if (tpprod == "") {
-   return false;
- }
- return true;
-}
-
-function ValidarCateg(categoria) {
- if (categoria == "") {
-   return false;
- }
- return true;
-}
-
-function ValidarFabr(fabricante) {
- if (fabricante == "") {
-   return false;
- }
- return true;
-}
-</script>
-</body>
-
+    <footer>
+      <p>3DAW Prova AV2 | by Alexsandro Cristiano Gonçalves da Silva</p>
+    </footer>
+  </body>
 </html>
